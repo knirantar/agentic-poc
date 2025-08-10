@@ -1,0 +1,32 @@
+# virtual env
+.venv/
+env/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# env / secrets
+.env
+.env.* 
+secrets.json
+keys/
+*.pem
+
+# data / models (don't commit big files)
+/data/
+/models/
+*.ckpt
+*.bin
+*.pth
