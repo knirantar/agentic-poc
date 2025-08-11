@@ -1,3 +1,40 @@
+## Getting Started (zsh/Mac)
+
+### Using pyenv and uv
+
+#### 1. Clone the Repository
+
+```zsh
+git clone https://github.com/knirantar/agentic-poc
+cd LangGraph-Course
+```
+
+#### 2. Create a virtual env
+
+# Mac/Linux
+
+'''zsh
+python3 -m venv venv
+source venv/bin/activate
+'''
+
+# Windows
+
+'''zsh
+python -m venv venv
+venv\Scripts\activate
+'''
+
+#### 3. Install dependencies
+
+'''zsh
+pip install --upgrade pip
+pip install -r requirements.txt
+'''
+
+#### 4. Create .env file with OPENAI_API_KEY
+
+
 # Langchain - 
 - Toolkit to build LLM Applications - (chains, tools, agents)
 - Linear and reactive chains
@@ -60,6 +97,25 @@
     - Processes define how agents will work together
     - How tasks will be assigned 
     - How interaction with each other will happen between agents
-    
 
 
+
+## Application Deployment
+1. Identify Deployable Components
+Each subdirectory in repo likely contains a runnable script or flow, such as a CrewAI or LangGraph agent. Common deployment-friendly formats include:
+
+A main script with if __name__ == "__main__" entry point.
+
+A FastAPI, Flask, or Streamlit app file.
+
+#### Example Docker file
+
+'''zsh
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 8501
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+'''
