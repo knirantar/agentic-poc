@@ -13,24 +13,24 @@ cd LangGraph-Course
 
 # Mac/Linux
 
-'''zsh
+```zsh
 python3 -m venv venv
 source venv/bin/activate
-'''
+```
 
 # Windows
 
-'''zsh
+```zsh
 python -m venv venv
 venv\Scripts\activate
-'''
+```
 
 #### 3. Install dependencies
 
-'''zsh
+```zsh
 pip install --upgrade pip
 pip install -r requirements.txt
-'''
+```
 
 #### 4. Create .env file with OPENAI_API_KEY
 
@@ -110,7 +110,7 @@ A FastAPI, Flask, or Streamlit app file.
 
 #### Example Docker file
 
-'''zsh
+```zsh
 FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
@@ -118,4 +118,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 EXPOSE 8501
 CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
-'''
+```
